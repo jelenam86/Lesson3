@@ -9,7 +9,6 @@ public class HighLowGame {
 	public static void main(String[] args) {
 
 		int rand = new Random().nextInt(100) + 1;
-		System.out.println(rand);
 		int number = 0;
 
 		for (int i = 0; i < 5; i++) {
