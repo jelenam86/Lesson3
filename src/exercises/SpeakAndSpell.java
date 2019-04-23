@@ -16,55 +16,23 @@ import voce.SpeechSynthesizer;
 public class SpeakAndSpell {
 
 	public static void main(String[] args) {
-		
+
 		int score = 0;
-		
-		speak("Spell mandlebrot");
-		String answer1 = JOptionPane.showInputDialog("Type your answer:");
-		if (answer1.equals("mandlebrot")) {
-			score++;
-			JOptionPane.showMessageDialog(null, "Correct");
-		} else {
-			JOptionPane.showMessageDialog(null, "Wrong");
+
+		String[] words = { "mandlebrot", "handkerchief", "rhythm", "occurred", "millennium" };
+
+		for (int i = 0; i < words.length; i++) {
+			speak("Spell" + words[i]);
+			String answer = JOptionPane.showInputDialog("Type your answer: ");
+			if (answer.equals(words[i])) {
+				score++;
+				JOptionPane.showMessageDialog(null, "Correct");
+			} else {
+				JOptionPane.showMessageDialog(null, "Wrong");
+			}
 		}
 
-		speak("Spell handkerchief");
-		String answer2 = JOptionPane.showInputDialog("Type your answer:");
-		if (answer2.equals("handkerchief")) {
-			score++;
-			JOptionPane.showMessageDialog(null, "Correct");
-		} else {
-			JOptionPane.showMessageDialog(null, "Wrong");
-		}
-
-		speak("Spell rhythm");
-		String answer3 = JOptionPane.showInputDialog("Type your answer:");
-		if (answer3.equals("rhythm")) {
-			score++;
-			JOptionPane.showMessageDialog(null, "Correct");
-		} else {
-			JOptionPane.showMessageDialog(null, "Wrong");
-		}
-
-		speak("Spell occurred");
-		String answer4 = JOptionPane.showInputDialog("Type your answer:");
-		if (answer4.equals("occurred")) {
-			score++;
-			JOptionPane.showMessageDialog(null, "Correct");
-		} else {
-			JOptionPane.showMessageDialog(null, "Wrong");
-		}
-
-		speak("Spell millennium");
-		String answer5 = JOptionPane.showInputDialog("Type your answer:");
-		if (answer5.equals("millennium")) {
-			score++;
-			JOptionPane.showMessageDialog(null, "Correct");
-		} else {
-			JOptionPane.showMessageDialog(null, "Wrong");
-		}
-
-		JOptionPane.showMessageDialog(null, "Your score: " + score);
+		JOptionPane.showMessageDialog(null, "Your score: " + score + "/" + words.length);
 	}
 
 	static void speak(String words) {
