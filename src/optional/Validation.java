@@ -1,7 +1,6 @@
 package optional;
 
 import java.util.Random;
-
 //import javax.swing.JOptionPane;
 
 import voce.SpeechSynthesizer;
