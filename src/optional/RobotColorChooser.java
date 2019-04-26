@@ -1,6 +1,7 @@
 package optional;
 
 import java.awt.Color;
+import java.lang.reflect.Field;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -16,18 +17,23 @@ public class RobotColorChooser {
 
 		do {
 			String answer = JOptionPane.showInputDialog("What color do you like the robot to draw a star?");
+			Color color = Color.ORANGE;
+
+			try {
+				Field field = Class.forName("java.awt.Color").getField(answer);
+				color = (Color) field.get(null);
+			} catch (Exception e) {
+				color = null;
+			}
+
 			if (answer.equals(""))
 				r.setRandomPenColor();
-			else if (answer.equals("red"))
-				r.setPenColor(Color.RED);
-			else if (answer.equals("blue"))
-				r.setPenColor(Color.BLUE);
-			else if (answer.equals("yellow"))
-				r.setPenColor(Color.YELLOW);
 			else {
-				JOptionPane.showMessageDialog(null,
-						"You can chose between red, blue and yellow color.\n Or, you can set random color by just clik on OK.");
-				continue;
+				if (!answer.equalsIgnoreCase("orange") && color == null) {
+					JOptionPane.showMessageDialog(null, "The robot doesn't recognize that color. So orange is chosen.");
+					color = Color.ORANGE;
+				}
+				r.setPenColor(color);
 			}
 
 			r.setPenWidth(10);
