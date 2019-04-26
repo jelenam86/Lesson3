@@ -16,7 +16,12 @@ public class Code4Life {
 
 		if (hours > 2) {
 			JOptionPane.showMessageDialog(null, "You are a Code Ninja.");
-			if (hours > 5)
+			if(hours > 24*7) {
+				JOptionPane.showMessageDialog(null, "Just kidding!");
+				JOptionPane.showMessageDialog(null, "Week only lasts " + 24*7 + " hours. Nice try ;)");
+			}
+			else if(hours > 7*20) JOptionPane.showMessageDialog(null, "But you should sleep sometimes...");
+			else if (hours > 5)
 				playBatmanTheme();
 		} else
 			JOptionPane.showMessageDialog(null, "Stop watching YouTube and write some code instead.");
