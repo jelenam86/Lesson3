@@ -24,10 +24,10 @@ public class CountQuartersUnrealistic extends TestCase {
 
 		String text = Double.toString(money);
 		int decimalPlaces = text.length() - text.indexOf(".") - 1;
-		
+
 		// indexOf(str) - returns -1 if there is no str in given String
 		// therefore, decimalPlaces == 1 if there is integer number of dollars
-		
+
 		if (decimalPlaces == 2 || decimalPlaces == 1)
 			return (int) (money * 100) % 25;
 		else {
