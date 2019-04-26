@@ -15,7 +15,7 @@ public class CountQuarters extends TestCase {
 	}
 
 	private Object countQuarters(double money) {
-		return (int) (money * 100 % 25);
+		return (int) (money * 100) % 25;
 	}
 
 }
